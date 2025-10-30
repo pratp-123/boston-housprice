@@ -5,7 +5,7 @@ from flask import Flask, request, app, jsonify,render_template
 
 app = Flask(__name__)
 
-with open('regmodel.pkl', 'rb') as f:
+with open('rfmodel.pkl', 'rb') as f:
     regmodel = pickle.load(f)
 
 with open('scaling.pkl', 'rb') as f:
@@ -28,8 +28,8 @@ def predict_api():
 @app.route('/predict',methods=['POST'])
 def predict():
     data=[float(x) for x in request.form.values()]
-    final_input=scaler.transform(np.array(data).reshape(1,-1))
-    print(final_input)
+    final_input= np.array(data).reshape(1,-1)
+    #print(final_input)
     output=regmodel.predict(final_input)[0]
     return render_template("index.html",prediction_text="The House price prediction is {}".format(output))
 
