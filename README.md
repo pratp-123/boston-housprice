@@ -31,6 +31,7 @@ LSTAT decreases with MEDV → higher lower-status % = lower price
 ![scatter of predicted and actual data points](images/predected_scatter.png)
 
 ### Directory
+```
 Directory structure:
 └── pratp-123-boston-housprice/
     ├── README.md
@@ -45,6 +46,7 @@ Directory structure:
     └── .github/
         └── workflows/
             └── main.yaml
+```
             
 
 
