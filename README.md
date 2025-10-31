@@ -17,22 +17,63 @@ source venv/bin/activate     # on Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### libraries and tools
+## libraries and tools
 ![Project Architecture](images/libraries.png)
 
+## spread and skewness of each numerical feature
+Several predictors require scaling or transformation due to skewness.
+
+The normal distribution of RM and the negative correlation of LSTAT and CRIM with price confirm the linear and socioeconomic relationships in the dataset.
+
+Understanding these patterns guided effective feature engineering and model tuning in this project.
 ![spread and skewness of each numerical feature](images/skewness.png)
 You’ll see whether features like RM (rooms per dwelling) or LSTAT (lower status population %) are normally distributed or skewed.
 
 
-### Relationship Between Key Features and Target
-![Relationship Between Key Features and Target](images/price%20vs%20feature.png)
+## Relationship Between Key Features and Target
 ✅ Insight:
-RM increases with MEDV → more rooms, higher price
-LSTAT decreases with MEDV → higher lower-status % = lower price
+🔹 2️⃣ Feature vs Price Relationships (Multi-Plot Visualization)
+🏠 (a) RM vs Price (Average Number of Rooms)
+
+A clear positive correlation — as the number of rooms (RM) increases, the house price also increases.
+
+Indicates that larger homes tend to have higher market values.
+
+💰 (b) LSTAT vs Price (Lower-Status Population Percentage)
+Shows a strong negative correlation — as LSTAT increases, house price decreases.
+Suggests that wealthier neighborhoods (low LSTAT) have higher-priced homes.
+
+📏 (c) PTRATIO vs Price (Pupil-Teacher Ratio)
+Weak to moderate negative relationship — higher student-to-teacher ratios slightly lower home prices.
+Implies that better educational quality (lower PTRATIO) can positively impact property value.
+
+🚗 (d) DIS vs Price (Distance to Employment Centers)
+Weak correlation — houses closer to employment centers (lower DIS) often have slightly higher prices, but effect varies.
+Suggests other features may dominate price determination.
+
+🚨 (e) CRIM vs Price (Per Capita Crime Rate)
+Strong negative correlation — areas with higher crime rates (CRIM) tend to have lower home prices.
+Confirms that safety is a key determinant of housing value.
+![Relationship Between Key Features and Target](images/price%20vs%20feature.png)
+
 
 
 
 ### scatter of predicted and actual data points
+📊 Insights from Visualizations
+🔹 1️⃣ Actual vs Predicted Prices (Scatter Plot)
+
+- The scatter plot shows Actual (x-axis) vs Predicted (y-axis) house prices.
+
+- Most points lie close to the diagonal line, indicating that predictions are generally accurate.
+
+ A few deviations suggest minor underfitting/overfitting, but overall, the model captures the relationship well.
+
+- This confirms the model’s strong predictive performance, likely reflected in a high R² score.
+
+- The consistent trend along the diagonal shows that the Random Forest Regressor effectively learned the mapping between features and price.
+
+  
 ![scatter of predicted and actual data points](images/predected_scatter.png)
 
 ### Directory
