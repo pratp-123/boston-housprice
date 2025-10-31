@@ -20,6 +20,10 @@ jobs:
         run: |
           docker build -t boston-housprice .
 
+      - name: Verify Docker image
+        run: |
+          docker images | grep boston-housprice
+
       # Step 3 (Optional): Run tests before deployment
       - name: Run tests
         run: echo "✅ All tests passed! (add pytest or linting here)"

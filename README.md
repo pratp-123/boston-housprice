@@ -2,7 +2,10 @@
 
 ### Tools required
 
-[render](https://render.com)
+1. [render](https://render.com)
+2. [Github Account](https://github.com)
+3. [VSCodeIDE](https://code.visualstudio.com/)
+4. [GitCLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
 
 
 ### Setup steps  
@@ -12,3 +15,7 @@ cd boston-housprice
 python3 -m venv venv         # or use conda
 source venv/bin/activate     # on Windows: venv\Scripts\activate
 pip install -r requirements.txt
+```
+
+
+
