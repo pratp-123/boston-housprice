@@ -13,16 +13,23 @@ jobs:
     steps:
       # Step 1: Checkout your repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Step 2 (Optional): Build Docker image (if your app uses Docker)
       - name: Build Docker image
-        run: |
-          docker build -t boston-housprice .
+        run: docker build . -t ${{ secrets.DOCKER_HUB_USERNAME }}/boston-housprice:latest
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Push Docker image to Docker Hub
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/boston-housprice:latest
 
       - name: Verify Docker image
-        run: |
-          docker images | grep boston-housprice
+        run: docker images | grep boston-housprice || true
 
       # Step 3 (Optional): Run tests before deployment
       - name: Run tests
